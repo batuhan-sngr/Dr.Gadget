@@ -1,0 +1,256 @@
+{
+  "personalInformation": {
+    "fullName": "Cioban Oleasea",
+    "dateOfBirth": "2002-09-06",
+    "gender": "Female",
+    "address": "Strada Pădurii 45, Sibiu",
+    "phoneNumber": "(021) 987-6543",
+    "emergencyContact": {
+      "name": "Ion Cioban",
+      "relationship": "Father",
+      "phoneNumber": "(021) 987-6544"
+    }
+  },
+  "primaryCarePhysician": {
+    "name": "Dr. Elena Munteanu",
+    "phoneNumber": "(021) 987-6545",
+    "address": "Clinica Medica, Strada Pădurii 50, Sibiu"
+  },
+  "medicalHistory": {
+    "allergies": [" absente"],
+    "chronicConditions": ["Niciuna"],
+    "surgeries": [""],
+    "medications": ["Vitamine, Suplimente de calciu"]
+  },
+  "recentVisits": [
+    {
+      "date": "03-01-2023",
+      "reason": "Control de rutină",
+      "findings": "Stare generală bună",
+      "prescriptions": "Suplimente de calciu"
+    }
+  ],
+  "immunizations": {
+    "flu": "Last dose: 2022",
+    "tetanus": "Last dose: 2020",
+    "hepatitisB": "Last dose: 2019",
+    "covid19": "Vaccinată în 2021"
+  },
+  "lifestyle": {
+    "diet": "Omnivorous",
+    "exercise": "Antrenament zilnic intensiv",
+    "tobaccoUse": "Non-smoker",
+    "alcoholConsumption": "Ocazional"
+  },
+  "familyHistory": {
+    "father": "Sănătos",
+    "mother": "Sănătoasă",
+    "siblings": "Sănătoși"
+  },
+  "smartDeviceData": {
+    "smartBloodPressureMonitor": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "values": "120/80 mmHg"
+      },
+      {
+        "fromDate": "08 June 2023",
+        "toDate": "14 June 2023",
+        "values": "121/78 mmHg"
+      },
+      {
+        "fromDate": "15 June 2023",
+        "toDate": "21 June 2023",
+        "values": "119/81 mmHg"
+      },
+      {
+        "fromDate": "22 June 2023",
+        "toDate": "28 June 2023",
+        "values": "120/79 mmHg"
+      },
+      {
+        "fromDate": "29 June 2023",
+        "toDate": "05 July 2023",
+        "values": "118/80 mmHg"
+      }
+    ],
+    "smartScale": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "weight": "70 kg",
+        "bodyFatPercentage": "20%"
+      },
+      {
+        "fromDate": "08 June 2023",
+        "toDate": "14 June 2023",
+        "weight": "70.5 kg",
+        "bodyFatPercentage": "19.8%"
+      },
+      {
+        "fromDate": "15 June 2023",
+        "toDate": "21 June 2023",
+        "weight": "70.4 kg",
+        "bodyFatPercentage": "19.9%"
+      },
+      {
+        "fromDate": "22 June 2023",
+        "toDate": "28 June 2023",
+        "weight": "70.3 kg",
+        "bodyFatPercentage": "20.1%"
+      },
+      {
+        "fromDate": "29 June 2023",
+        "toDate": "05 July 2023",
+        "weight": "70.2 kg",
+        "bodyFatPercentage": "20%"
+      }
+    ],
+    "pulseOximeter": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "oxygenLevel": "98%",
+        "heartRate": "100 bpm"
+      },
+      {
+        "fromDate": "08 June 2023",
+        "toDate": "14 June 2023",
+        "oxygenLevel": "97%",
+        "heartRate": "99 bpm"
+      },
+      {
+        "fromDate": "15 June 2023",
+        "toDate": "21 June 2023",
+        "oxygenLevel": "98%",
+        "heartRate": "101 bpm"
+      },
+      {
+        "fromDate": "22 June 2023",
+        "toDate": "28 June 2023",
+        "oxygenLevel": "97%",
+        "heartRate": "100 bpm"
+      },
+      {
+        "fromDate": "29 June 2023",
+        "toDate": "05 July 2023",
+        "oxygenLevel": "96%",
+        "heartRate": "98 bpm"
+      }
+    ],
+    "sleepTracker": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "sleepDuration": "7 hours",
+        "sleepQuality": "80% deep sleep"
+      },
+      {
+        "fromDate": "08 June 2023",
+        "toDate": "14 June 2023",
+        "sleepDuration": "6.5 hours",
+        "sleepQuality": "78% deep sleep"
+      },
+      {
+        "fromDate": "15 June 2023",
+        "toDate": "21 June 2023",
+        "sleepDuration": "7 hours",
+        "sleepQuality": "77% deep sleep"
+      },
+      {
+        "fromDate": "22 June 2023",
+        "toDate": "28 June 2023",
+        "sleepDuration": "7.5 hours",
+        "sleepQuality": "79% deep sleep"
+      },
+      {
+        "fromDate": "29 June 2023",
+        "toDate": "05 July 2023",
+        "sleepDuration": "7 hours",
+        "sleepQuality": "80% deep sleep"
+      }
+    ],
+    "continuousGlucoseMonitor": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "bloodSugarLevel": "4.5 mmol/l"
+      },
+      {
+        "fromDate": "08 June 2023",
+        "toDate": "14 June 2023",
+        "bloodSugarLevel": "4.7 mmol/l"
+      },
+      {
+        "fromDate": "15 June 2023",
+        "toDate": "21 June 2023",
+        "bloodSugarLevel": "4.4 mmol/l"
+      },
+      {
+        "fromDate": "22 June 2023",
+        "toDate": "28 June 2023",
+        "bloodSugarLevel": "4.6 mmol/l"
+      },
+      {
+        "fromDate": "29 June 2023",
+        "toDate": "05 July 2023",
+        "bloodSugarLevel": "4.5 mmol/l"
+      }
+    ],
+    "hydrationMonitor": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "hydrationLevel": "80%"
+      },
+      {
+        "fromDate": "08 June 2023",
+        "toDate": "14 June 2023",
+        "hydrationLevel": "79%"
+      },
+      {
+        "fromDate": "15 June 2023",
+        "toDate": "21 June 2023",
+        "hydrationLevel": "78%"
+      },
+      {
+        "fromDate": "22 June 2023",
+        "toDate": "28 June 2023",
+        "hydrationLevel": "81%"
+      },
+      {
+        "fromDate": "29 June 2023",
+        "toDate": "05 July 2023",
+        "hydrationLevel": "80%"
+      }
+    ],
+    "physicalActivityMonitor": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "dailySteps": "8,000 steps"
+      },
+      {
+        "fromDate": "08 June 2023",
+        "toDate": "14 June 2023",
+        "dailySteps": "7,800 steps"
+      },
+      {
+        "fromDate": "15 June 2023",
+        "toDate": "21 June 2023",
+        "dailySteps": "8,100 steps"
+      },
+      {
+        "fromDate": "22 June 2023",
+        "toDate": "28 June 2023",
+        "dailySteps": "7,900 steps"
+      },
+      {
+        "fromDate": "29 June 2023",
+        "toDate": "05 July 2023",
+        "dailySteps": "8,200 steps"
+      }
+    ]
+  }
+}

@@ -1,0 +1,208 @@
+google.charts.load('current', { 'packages': ['corechart'] });
+
+// Helper function to create a section with a title and content
+function createSection(title, content) {
+    const section = document.createElement('div');
+    section.classList.add('section');
+    section.innerHTML = `<h2>${title}</h2>${content}`;
+    return section;
+}
+
+loadAndDisplayPersonData(`Source data-20230909T223102Z-001/Source data/${personData[0].dir}`);
+
+// Modify your loadAndDisplayPersonData function to include chart creation
+async function loadAndDisplayPersonData(personDir) {
+    const ehrData = await fetchJSONData(personDir, "ehr.json");
+    const phrData = await fetchJSONData(personDir, "phr.json");
+
+    const ehrInfo = document.getElementById("ehr-info");
+    ehrInfo.innerHTML = `
+        <h2>Primary Care Physician</h2>
+        <p>Name: ${phrData.primaryCarePhysician.name}</p>
+        <p>Phone Number: ${phrData.primaryCarePhysician.phoneNumber}</p>
+        <p>Address: ${phrData.primaryCarePhysician.address}</p>
+        
+        <h2>Medical History</h2>
+        <p>Allergies: ${phrData.medicalHistory.allergies.join(', ')}</p>
+        <p>Chronic Conditions: ${phrData.medicalHistory.chronicConditions.join(', ')}</p>
+        <p>Surgeries: ${phrData.medicalHistory.surgeries.join(', ')}</p>
+        <p>Medications: ${phrData.medicalHistory.medications.join(', ')}</p>
+        
+        <h2>Weight</h2>
+        <p>Weight (kg): ${ehrData.triage.weightKg}</p>
+
+        <h2>Recent Visits</h2>
+        ${phrData.recentVisits.map(visit => `
+            <p>Date: ${visit.date}</p>
+            <p>Reason: ${visit.reason}</p>
+            <p>Findings: ${visit.findings}</p>
+            <p>Prescriptions: ${Array.isArray(visit.prescriptions) ? visit.prescriptions.join(', ') : 'N/A'}</p>
+        `).join('')}
+        
+        <h2>Immunizations</h2>
+        <p>Flu: ${phrData.immunizations.flu}</p>
+        <p>Tetanus: ${phrData.immunizations.tetanus}</p>
+        <p>Hepatitis B: ${phrData.immunizations.hepatitisB}</p>
+        <p>COVID-19: ${phrData.immunizations.covid19}</p>
+        
+        <h2>Lifestyle</h2>
+        <p>Diet: ${phrData.lifestyle.diet}</p>
+        <p>Exercise: ${phrData.lifestyle.exercise}</p>
+        <p>Tobacco Use: ${phrData.lifestyle.tobaccoUse}</p>
+        <p>Alcohol Consumption: ${phrData.lifestyle.alcoholConsumption}</p>
+
+        <h2>Weight</h2>
+        <p>Weight (kg): ${phrData.triage.weightKg}</p>
+        
+        <h2>Family History</h2>
+        <p>Father: ${phrData.familyHistory.father}</p>
+        <p>Mother: ${phrData.familyHistory.mother}</p>
+        <p>Siblings: ${phrData.familyHistory.siblings}</p>
+        
+        <h2>Smart Device Data</h2>
+        
+        <h3>Smart Blood Pressure Monitor</h3>
+        <ul>
+            ${phrData.smartDeviceData.smartBloodPressureMonitor.map(bp => `
+                <li>Date: ${bp.fromDate} - ${bp.toDate}, Values: ${bp.values}</li>
+            `).join('')}
+        </ul>
+        
+        <h3>Smart Scale</h3>
+        <ul>
+            ${phrData.smartDeviceData.smartScale.map(scale => `
+                <li>Date: ${scale.fromDate} - ${scale.toDate}, Weight: ${scale.weight}, Body Fat Percentage: ${scale.bodyFatPercentage}</li>
+            `).join('')}
+        </ul>
+        
+        <h3>Pulse Oximeter</h3>
+        <ul>
+            ${phrData.smartDeviceData.pulseOximeter.map(oximeter => `
+                <li>Date: ${oximeter.fromDate} - ${oximeter.toDate}, Oxygen Level: ${oximeter.oxygenLevel}, Heart Rate: ${oximeter.heartRate}</li>
+            `).join('')}
+        </ul>
+        
+        <h3>Sleep Tracker</h3>
+        <ul>
+            ${phrData.smartDeviceData.sleepTracker.map(sleep => `
+                <li>Date: ${sleep.fromDate} - ${sleep.toDate}, Sleep Duration: ${sleep.sleepDuration}, Sleep Quality: ${sleep.sleepQuality}</li>
+            `).join('')}
+        </ul>
+        
+        <h3>Continuous Glucose Monitor</h3>
+        <ul>
+            ${phrData.smartDeviceData.continuousGlucoseMonitor.map(glucose => `
+                <li>Date: ${glucose.fromDate} - ${glucose.toDate}, Blood Sugar Level: ${glucose.bloodSugarLevel}</li>
+            `).join('')}
+        </ul>
+        
+        <h3>Hydration Monitor</h3>
+        <ul>
+            ${phrData.smartDeviceData.hydrationMonitor.map(hydration => `
+                <li>Date: ${hydration.fromDate} - ${hydration.toDate}, Hydration Level: ${hydration.hydrationLevel}</li>
+            `).join('')}
+        </ul>
+        
+        <h3>Physical Activity Monitor</h3>
+        <ul>
+            ${phrData.smartDeviceData.physicalActivityMonitor.map(activity => `
+                <li>Date: ${activity.fromDate} - ${activity.toDate}, Daily Steps: ${activity.dailySteps}</li>
+            `).join('')}
+        </ul>
+    `;
+
+    createWeightChart(phrData.smartDeviceData.smartScale);
+
+    // Determine the patient's gender and set the avatar accordingly
+    const patientAvatar = document.getElementById("patient-avatar");
+    if (ehrData.personalInformation.gender === "Male") {
+        patientAvatar.src = "male-avatar.png";
+    } else if (ehrData.personalInformation.gender === "Female") {
+        patientAvatar.src = "female-avatar.png";
+    }
+}
+// Function to create a blood pressure chart using Google Charts
+function createBloodPressureChart(data) {
+    const dataTable = new google.visualization.DataTable();
+    dataTable.addColumn('date', 'Date');
+    dataTable.addColumn('number', 'Systolic Pressure (mmHg)');
+    dataTable.addColumn('number', 'Diastolic Pressure (mmHg)');
+
+    data.forEach(entry => {
+        const dateParts = entry.fromDate.split('.');
+        const date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+        const systolic = parseFloat(entry.values.split('/')[0]);
+        const diastolic = parseFloat(entry.values.split('/')[1]);
+        dataTable.addRow([date, systolic, diastolic]);
+    });
+
+    const options = {
+        title: 'Blood Pressure Over Time',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+    };
+
+    const chart = new google.visualization.LineChart(document.getElementById('bloodPressureChart'));
+    chart.draw(dataTable, options);
+}
+function createWeightChart(data) {
+    const dataTable = new google.visualization.DataTable();
+    dataTable.addColumn('date', 'Date');
+    dataTable.addColumn('number', 'weight (kg)');
+
+    data.forEach(entry => {
+        const dateParts = entry.fromDate.split('.');
+        const date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+        const weight = parseFloat(entry.values.split('/')[0]);
+        dataTable.addRow([date, weight]);
+    });
+
+    const options = {
+        title: 'Weight Over Time',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+    };
+
+    const chart = new google.visualization.LineChart(document.getElementById('weightChart'));
+    chart.draw(dataTable, options);
+}
+const personData = [
+    {
+        name: "Cioban Oleasea",
+        dir: "Cioban_Oleasea" // Adjust directory name to match actual directory
+    },
+    {
+        name: "Corobcean Ion",
+        dir: "Corobcean_Ion" // Adjust directory name to match actual directory
+    },
+    {
+        name: "Dancean Corneliu",
+        dir: "Dancean_Corneliu" // Adjust directory name to match actual directory
+    },
+    {
+        name: "Seminiuc Alina",
+        dir: "Seminiuc_Alina" // Adjust directory name to match actual directory
+    },
+    {
+        name: "Sergiu Ilie",
+        dir: "Sergiu_Ilie" // Adjust directory name to match actual directory
+    }
+];
+
+// Populate the dropdown list
+const personSelect = document.getElementById("person-select");
+personData.forEach((person) => {
+    const option = document.createElement("option");
+    option.value = person.dir;
+    option.textContent = person.name;
+    personSelect.appendChild(option);
+});
+
+// Event listener for dropdown selection
+personSelect.addEventListener("change", (event) => {
+    const selectedDir = event.target.value;
+    loadAndDisplayPersonData(`Source_data-20230909T223102Z-001/Source_data/${selectedDir}`);
+});
+
+// Initial load of the first person's data
+loadAndDisplayPersonData(`Source_data-20230909T223102Z-001/Source_data/${personData[0].dir}`);
