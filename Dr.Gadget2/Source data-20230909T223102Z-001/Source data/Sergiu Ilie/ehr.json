@@ -1,0 +1,55 @@
+{
+  "personalInformation": {
+    "firstName": "Sergiu",
+    "lastName": "Ilie",
+    "dateOfBirth": "1991-09-05",
+    "gender": "Male",
+    "idNumber": "1991090512345"
+  },
+  "triage": {
+    "weightKg": 78,
+    "heightCm": 185,
+    "bmi": 22.8,
+    "bloodPressure": "110/70 mmHg",
+    "pulse": 60,
+    "respiratoryRate": 15,
+    "oxygenSaturation": 99
+  },
+  "consultations": [
+    {
+      "date": "04/09/2023",
+      "complaints": "Nu prezintă simptome evidente, control profilactic",
+      "medicalHistory": "Sportiv de performanță, nu a avut boli semnificative în trecut. Nu a avut Covid-19. Vaccinat cu Pfizer Schema completă. Rapel în august 2023.",
+      "investigationHistory": {
+        "laboratory": {
+          "fastingBloodSugar": "4.9 mmol/l",
+          "hemoglobin": "16 g/dl",
+          "erythrocytes": "5.2*10^6/uL",
+          "leukocytes": "5*10^3/uL",
+          "proteinaCReactiva": "0.5 mg/l"
+        },
+        "paraclinical": "Radiografia toracelui: Transparent bilateral, fără semne patologice. Cordul cu dimensiuni în limite normale."
+      },
+      "physicalExamination": "Tegumente rozate, hidratate, fără leziuni. Ganglionii limfatici periferici nu prezintă modificări. Murmur vezicular prezent bilateral. Abdomen suplu, indolor la palpare. Mictii libere, indolore.",
+      "diagnosis": "Stare generală bună, fără patologie acută sau cronică evidentă la momentul prezentării.",
+      "recommendations": "Se recomandă continuarea regimului de antrenament și o alimentație echilibrată."
+    }
+  ],
+  "chronicDiseases": [
+    "Nu prezintă boli cronice"
+  ],
+  "allergies": ["Nu are alergii cunoscute"],
+  "epidemiologicalHistory": [
+    {
+      "covid": "Nu a avut Covid-19",
+      "vaccination": "Pfizer",
+      "covidTest": "Negativ 04/09/2023"
+    }
+  ],
+  "riskFactors": [
+    "Expozitie crescuta la accidentări datorate activității sportive"
+  ],
+  "previousDiseases": [
+    "Entorsa glezna dreaptă în 2019"
+  ]
+}

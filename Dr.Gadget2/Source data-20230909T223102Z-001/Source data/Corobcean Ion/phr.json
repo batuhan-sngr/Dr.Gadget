@@ -1,0 +1,106 @@
+{
+  "personalInformation": {
+    "fullName": "Corobcean Ion",
+    "dateOfBirth": "1964-09-06",
+    "gender": "Male",
+    "address": "Strada Principală 123, Oradea",
+    "phoneNumber": "(021) 123-4567",
+    "emergencyContact": {
+      "name": "Maria Corobcean",
+      "relationship": "Wife",
+      "phoneNumber": "(021) 123-4568"
+    }
+  },
+  "primaryCarePhysician": {
+    "name": "Dr. Chiril Braga",
+    "phoneNumber": "(021) 123-4569",
+    "address": "Bucuresti str Pacii 35"
+  },
+  "medicalHistory": {
+    "allergies": ["None"],
+    "chronicConditions": ["Gastrita cronica", "Hernie inghinala", "Hepatita B", "HTA gr II"],
+    "surgeries": ["Appendectomy 1998"],
+    "medications": ["Paracetamol 500mg as needed"]
+  },
+  "recentVisits": [
+    {
+      "date": "03.01.2023",
+      "reason": "Hemoptizii repetate",
+      "findings": "Pneumonie comunitara polisegmentara pe dreapta, evolutie gravitate medie.",
+      "prescriptions": "Antibiotics, Cough Syrup"
+    }
+  ],
+  "immunizations": {
+    "flu": "Last dose: 2021",
+    "tetanus": "Last dose: 2019",
+    "hepatitisB": "Completed series as an adult (2005)"
+  },
+  "lifestyle": {
+    "diet": "Omnivorous",
+    "exercise": "Light walking daily",
+    "tobaccoUse": "Occasional smoker",
+    "alcoholConsumption": "Social drinker"
+  },
+  "familyHistory": {
+    "father": "Hypertension",
+    "mother": "Diabetes Type 2",
+    "siblings": "Healthy"
+  },
+  "smartDeviceData": {
+    "smartBloodPressureMonitor": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "values": "120/80 mmHg"
+      }
+    ],
+    "smartScale": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "weight": "70 kg",
+        "bodyFatPercentage": "20%"
+      }
+    ],
+    "pulseOximeter": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "oxygenLevel": "98%",
+        "heartRate": "100 bpm"
+      }
+    ],
+    "portableHeartRateMonitor": {
+      "observations": "Consistent rate of 70-100 bpm in the last 4 weeks."
+    },
+    "sleepTracker": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "sleepDuration": "7 hours",
+        "sleepQuality": "80% deep sleep"
+      }
+    ],
+    "continuousGlucoseMonitor": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "bloodSugarLevel": "4,5 mmol/l"
+      }
+    ],
+    "hydrationMonitor": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "hydrationLevel": "80%"
+      }
+    ],
+    "physicalActivityMonitor": [
+      {
+        "fromDate": "01 June 2023",
+        "toDate": "07 June 2023",
+        "dailySteps": "8,000 steps"
+      }
+    ]
+  }
+}
