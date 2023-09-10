@@ -2,6 +2,28 @@
 
     // Function to fetch JSON data
 
+    const personData2 = [
+        {
+            name: "Cioban Oleasea",
+            dir: "Cioban Oleasea"
+        },
+        {
+            name: "Corobcean Ion",
+            dir: "Corobcean Ion"
+        },
+        {
+            name: "Dancean Corneliu",
+            dir: "Dancean Corneliu"
+        },
+        {
+            name: "Seminiuc Alina",
+            dir: "Seminiuc Alina"
+        },
+        {
+            name: "Sergiu Ilie",
+            dir: "Sergiu Ilie"
+        }
+    ];
 
     async function fetchJSONData(personDir, file) {
         try {
@@ -30,18 +52,18 @@
             <!-- Add more EHR data here -->
         `;
 
-        const phrInfo = document.getElementById("phr-info");
-        phrInfo.innerHTML = `
-            <p>Full Name: ${phrData.personalInformation.fullName}</p>
-            <p>Date of Birth: ${phrData.personalInformation.dateOfBirth}</p>
-            <p>Gender: ${phrData.personalInformation.gender}</p>
-            <p>Address: ${phrData.personalInformation.address}</p>
-            <p>Phone Number: ${phrData.personalInformation.phoneNumber}</p>
-            <p>Emergency Contact's Name: ${phrData.personalInformation.emergencyContact.name}</p>
-            <p>Relationship: ${phrData.personalInformation.emergencyContact.relationship}</p>
-            <p>Phone Number: ${phrData.personalInformation.emergencyContact.phoneNumber}</p>
-            <!-- Add more PHR data here -->
-        `;
+        // const phrInfo = document.getElementById("phr-info");
+        // phrInfo.innerHTML = `
+        //     <p>Full Name: ${phrData.personalInformation.fullName}</p>
+        //     <p>Date of Birth: ${phrData.personalInformation.dateOfBirth}</p>
+        //     <p>Gender: ${phrData.personalInformation.gender}</p>
+        //     <p>Address: ${phrData.personalInformation.address}</p>
+        //     <p>Phone Number: ${phrData.personalInformation.phoneNumber}</p>
+        //     <p>Emergency Contact's Name: ${phrData.personalInformation.emergencyContact.name}</p>
+        //     <p>Relationship: ${phrData.personalInformation.emergencyContact.relationship}</p>
+        //     <p>Phone Number: ${phrData.personalInformation.emergencyContact.phoneNumber}</p>
+        //     <!-- Add more PHR data here -->
+        // `;
 
         // Determine the patient's gender and set the avatar accordingly
         const patientAvatar = document.getElementById("patient-avatar");
@@ -54,43 +76,21 @@
     }
 
     // Define an array of person directory names and corresponding names
-    const personData2 = [
-        {
-            name: "Cioban Oleasea",
-            dir: "Cioban Oleasea"
-        },
-        {
-            name: "Corobcean Ion",
-            dir: "Corobcean Ion"
-        },
-        {
-            name: "Dancean Corneliu",
-            dir: "Dancean Corneliu"
-        },
-        {
-            name: "Seminiuc Alina",
-            dir: "Seminiuc Alina"
-        },
-        {
-            name: "Sergiu Ilie",
-            dir: "Sergiu Ilie"
-        }
-    ];
-
+    
     // // Populate the dropdown list
-    // const personSelect2 = document.getElementById("person-select");
-    // personData2.forEach((person) => {
-    //     const option = document.createElement("option");
-    //     option.value = person.dir;
-    //     option.textContent = person.name;
-    //     personSelect2.appendChild(option);
-    // });
+    const personSelect2 = document.getElementById("person-select");
+    personData2.forEach((person) => {
+        const option = document.createElement("option");
+        option.value = person.dir;
+        option.textContent = person.name;
+        personSelect2.appendChild(option);
+    });
 
     // Event listener for dropdown selection
-    // personSelect2.addEventListener("change", (event) => {
-    //     const selectedDir = event.target.value;
-    //     loadAndDisplaypersonData2(`Source data-20230909T223102Z-001/Source data/${selectedDir}`);
-    // });
+        personSelect2.addEventListener("change", (event) => {
+        const selectedDir = event.target.value;
+        loadAndDisplaypersonData2(`Source data-20230909T223102Z-001/Source data/${selectedDir}`);
+ });
 
     // Initial load of the first person's data
     loadAndDisplaypersonData2(`Source data-20230909T223102Z-001/Source data/${personData2[0].dir}`);

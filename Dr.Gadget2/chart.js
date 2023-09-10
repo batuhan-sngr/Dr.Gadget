@@ -3,23 +3,23 @@ google.charts.load('current', { 'packages': ['corechart'] });
 const personData = [
     {
         name: "Cioban Oleasea",
-        dir: "Cioban_Oleasea" // Adjust directory name to match actual directory
+        dir: "Cioban Oleasea" // Adjust directory name to match actual directory
     },
     {
         name: "Corobcean Ion",
-        dir: "Corobcean_Ion" // Adjust directory name to match actual directory
+        dir: "Corobcean Ion" // Adjust directory name to match actual directory
     },
     {
         name: "Dancean Corneliu",
-        dir: "Dancean_Corneliu" // Adjust directory name to match actual directory
+        dir: "Dancean Corneliu" // Adjust directory name to match actual directory
     },
     {
         name: "Seminiuc Alina",
-        dir: "Seminiuc_Alina" // Adjust directory name to match actual directory
+        dir: "Seminiuc Alina" // Adjust directory name to match actual directory
     },
     {
         name: "Sergiu Ilie",
-        dir: "Sergiu_Ilie" // Adjust directory name to match actual directory
+        dir: "Sergiu Ilie" // Adjust directory name to match actual directory
     }
 ];
 
@@ -31,7 +31,7 @@ function createSection(title, content) {
     return section;
 }
 
-// loadAndDisplayPersonData(`Source data-20230909T223102Z-001/Source data/${personData[0].dir}`);
+//loadAndDisplayPersonData(`Source data-20230909T223102Z-001/Source data/${personData[0].dir}`);
 async function fetchJSONData(personDir, file) {
     try {
         const response = await fetch(`${personDir}/${file}`);
